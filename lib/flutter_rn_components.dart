@@ -1,6 +1,11 @@
 library flutter_rn_components;
 
-export 'components/pressable.dart';
-export 'components/safe_area_view.dart';
-export 'components/text.dart';
-export 'components/view.dart';
+import 'components/pressable.dart';
+import 'components/safe_area_view.dart';
+import 'components/text.dart';
+import 'components/view.dart' as reactnative;
+
+const RNPressable = Pressable;
+const RNView = reactnative.View;
+const RNText = BaseText;
+const RNSafeAreaView = SafeAreaView;
