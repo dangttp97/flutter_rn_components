@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rn_components/base/utils.dart';
 import 'package:flutter_rn_components/base/view_style.dart';
 
-class View extends StatelessWidget {
+class RNView extends StatelessWidget {
   List<Widget> children;
   ViewStyle? style;
 
-  View({super.key, required this.children, this.style});
+  RNView({super.key, required this.children, this.style});
 
   get _basicContent => LayoutBuilder(
         builder: (context, constraints) {

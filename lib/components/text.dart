@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rn_components/base/utils.dart';
 import 'package:flutter_rn_components/base/view_style.dart';
 
-class BaseText extends StatelessWidget {
+class RNText extends StatelessWidget {
   String text;
   ViewStyle? style;
 
-  BaseText({super.key, this.style, required this.text});
+  RNText({super.key, this.style, required this.text});
 
   @override
   Widget build(BuildContext context) {
