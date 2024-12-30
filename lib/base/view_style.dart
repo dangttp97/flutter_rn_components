@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
+enum ViewPosition { relative, absolute }
+
 class ViewStyle {
+  ViewPosition? position;
+
   /// Flex config
   Axis? flexDirection;
   MainAxisAlignment? justifyContent;
@@ -53,8 +57,14 @@ class ViewStyle {
   double? shadowSpreadRadius;
   Offset? shadowOffset;
 
-  ///Border sizing config
+  ///Border corner radius configs
   double? borderRadius;
+  double? borderTopLeftRadius;
+  double? borderTopRightRadius;
+  double? borderBottomLeftRadius;
+  double? borderBottomRightRadius;
+
+  ///Border sizing config
   double? borderWidth;
   double? borderTopWidth;
   double? borderBottomWidth;
@@ -69,6 +79,7 @@ class ViewStyle {
   Color? borderRightColor;
 
   ViewStyle({
+    this.position = ViewPosition.relative,
     this.flexDirection,
     this.justifyContent,
     this.alignItems,
@@ -89,6 +100,10 @@ class ViewStyle {
     this.marginBottom,
     this.backgroundColor,
     this.borderRadius,
+    this.borderTopLeftRadius,
+    this.borderTopRightRadius,
+    this.borderBottomLeftRadius,
+    this.borderBottomRightRadius,
     this.borderWidth,
     this.borderColor,
     this.shadowColor,
@@ -121,6 +136,7 @@ class ViewStyle {
   ViewStyle? _merge(ViewStyle? other) {
     if (other == null) return this;
     return ViewStyle(
+      position: other.position ?? position,
       flexDirection: other.flexDirection ?? flexDirection,
       justifyContent: other.justifyContent ?? justifyContent,
       alignItems: other.alignItems ?? alignItems,
@@ -141,6 +157,12 @@ class ViewStyle {
       marginBottom: other.marginBottom ?? marginBottom,
       backgroundColor: other.backgroundColor ?? backgroundColor,
       borderRadius: other.borderRadius ?? borderRadius,
+      borderTopLeftRadius: other.borderTopLeftRadius ?? borderTopLeftRadius,
+      borderTopRightRadius: other.borderTopRightRadius ?? borderTopRightRadius,
+      borderBottomLeftRadius:
+          other.borderBottomLeftRadius ?? borderBottomLeftRadius,
+      borderBottomRightRadius:
+          other.borderBottomRightRadius ?? borderBottomRightRadius,
       borderWidth: other.borderWidth ?? borderWidth,
       borderColor: other.borderColor ?? borderColor,
       shadowColor: other.shadowColor ?? shadowColor,

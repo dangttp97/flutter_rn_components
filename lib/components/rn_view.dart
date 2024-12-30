@@ -18,9 +18,7 @@ class RNView extends StatelessWidget {
             decoration: BoxDecoration(
               color: style?.backgroundColor ?? Colors.transparent,
               border: BaseCompUtils.getBorder(style),
-              borderRadius: style?.borderRadius != null
-                  ? BorderRadius.circular(style!.borderRadius!)
-                  : null,
+              borderRadius: BaseCompUtils.getBorderRadius(style),
               boxShadow: BaseCompUtils.getBoxShadow(style) != null
                   ? [BaseCompUtils.getBoxShadow(style)!]
                   : null,
@@ -60,27 +58,7 @@ class RNView extends StatelessWidget {
   }
 
   Widget _renderWithContraints(Widget content) {
-    if (style?.width != null && style?.height != null) {
-      return content;
-    } else if (style?.width != null &&
-        (style?.minHeight != null || style?.maxHeight != null)) {
-      return ConstrainedBox(
-        constraints: BoxConstraints(
-          minHeight: style?.minHeight ?? 0,
-          maxHeight: style?.maxHeight ?? double.infinity,
-        ),
-        child: content,
-      );
-    } else if (style?.height != null &&
-        (style?.minWidth != null || style?.maxWidth != null)) {
-      return ConstrainedBox(
-        constraints: BoxConstraints(
-          minWidth: style?.minWidth ?? 0,
-          maxWidth: style?.maxWidth ?? double.infinity,
-        ),
-        child: content,
-      );
-    } else if ((style?.minHeight != null || style?.maxHeight != null) &&
+    if ((style?.minHeight != null || style?.maxHeight != null) ||
         (style?.minWidth != null || style?.maxWidth != null)) {
       return ConstrainedBox(
         constraints: BoxConstraints(
@@ -96,8 +74,27 @@ class RNView extends StatelessWidget {
     return content;
   }
 
+  Widget _renderWithPosition(Widget content) {
+    if (style?.position == ViewPosition.absolute) {
+      return Positioned(
+          top: style?.marginTop,
+          left: style?.marginLeft,
+          right: style?.marginRight,
+          bottom: style?.marginBottom,
+          child: content);
+    }
+
+    return content;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return _renderWithContraints(_renderContentAsFlex(_basicContent));
+    return _renderWithPosition(
+      _renderWithContraints(
+        _renderContentAsFlex(
+          _basicContent,
+        ),
+      ),
+    );
   }
 }

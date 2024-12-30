@@ -87,6 +87,19 @@ class BaseCompUtils {
     );
   }
 
+  static BorderRadius? getBorderRadius(ViewStyle? style) {
+    if (style?.borderRadius != null) {
+      return BorderRadius.circular(style!.borderRadius!);
+    }
+
+    return BorderRadius.only(
+      topLeft: Radius.circular(style?.borderTopLeftRadius ?? 0.0),
+      topRight: Radius.circular(style?.borderTopRightRadius ?? 0.0),
+      bottomLeft: Radius.circular(style?.borderBottomLeftRadius ?? 0.0),
+      bottomRight: Radius.circular(style?.borderBottomRightRadius ?? 0.0),
+    );
+  }
+
   static BoxShadow? getBoxShadow(ViewStyle? style) {
     if (style?.shadowColor != null) {
       return BoxShadow(
