@@ -1,5 +1,5 @@
 name: flutter_rn_components
-description: "A new Flutter package project."
+description: "Flutter library for exporting widgets with name and styling like React Native."
 version: 0.0.1
 homepage:
 

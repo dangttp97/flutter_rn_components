@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rn_components/base/view_style.dart';
-import 'package:flutter_rn_components/components/view.dart';
+import 'package:flutter_rn_components/components/rn_view.dart';
 
 class RNSafeAreaView extends RNView {
   RNSafeAreaView({required super.children, super.style, super.key});

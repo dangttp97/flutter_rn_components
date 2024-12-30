@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rn_components/base/view_style.dart';
-import 'package:flutter_rn_components/components/view.dart';
+import 'package:flutter_rn_components/components/rn_view.dart';
 
 class RNPressable extends StatelessWidget {
   List<Widget>? children;

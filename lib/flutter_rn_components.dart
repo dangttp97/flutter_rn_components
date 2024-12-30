@@ -1,6 +1,8 @@
 library flutter_rn_components;
 
-export 'components/pressable.dart';
-export 'components/safe_area_view.dart';
-export 'components/text.dart';
-export 'components/view.dart';
+export 'components/rn_pressable.dart';
+export 'components/rn_safe_area_view.dart';
+export 'components/rn_text.dart';
+export 'components/rn_view.dart';
+export "base/view_style.dart";
+export "base/style_sheet.dart";
