@@ -14,6 +14,8 @@ class ViewStyle {
   double? height;
   double? minHeight;
   double? maxHeight;
+  double? minWidth;
+  double? maxWidth;
 
   ///Padding config
   double? padding = 0.0;
@@ -109,6 +111,8 @@ class ViewStyle {
     this.textAlign,
     this.height,
     this.width,
+    this.minWidth,
+    this.maxWidth,
     this.minHeight,
     this.maxHeight,
   });
@@ -159,6 +163,8 @@ class ViewStyle {
       textAlign: other.textAlign ?? textAlign,
       height: other.height ?? height,
       width: other.width ?? width,
+      minWidth: other.minWidth ?? minWidth,
+      maxWidth: other.maxWidth ?? maxWidth,
       minHeight: other.minHeight ?? minHeight,
       maxHeight: other.maxHeight ?? maxHeight,
     );
